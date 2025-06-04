@@ -4,28 +4,60 @@
     <title> Happy Birthday, Jess!</title>
     <style>
       /* we'll add CSS styling here later */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #fffafc;
+      }
+      .rainbow-border {
+        border: 6px solid;
+        padding: 20px;
+        max-width: 600px;
+        margin: 40px auto;
+        border-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet) 1;
+        text-align: center;
+      }
+      #envelope {
+        font-size: 70px;
+        padding: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      #primaryMessage {
+        display: none;
+        margin-top: 30px;
+        font-size: 48px;
+        cursor: pointer;
+      }
+      #fullMessage {
+        display: none;
+        margin-top: 20px;
+        font-size: 28px;
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
   <body>
-    <div style="text-align: center; margin-top: 40px;">
-      <button id="envelope" style="font-size: 24px; padding: 15px;">
-        💌
-      </button>
+    <div class="rainbow-border">
+      <button id="envelope">💌</button>
     </div>
-    <div id="primaryMessage" style="text-align: center; margin-top: 30px; font-size: 28px; cursor: pointer;">
+    <div id="primaryMessage">
       Happy Birthday, Jess!!! <span style="font-size: 16px;">(Click)</span>
-    </div>
-      <div id="fullMessage" style="display: none; text-align: center; margin-top: 20px; font-size: 18px;">
+      <div id="fullMessage">
         You mean the world to me, I hope your day is as special as you are. Every day that I get to talk to you is a better day for it. You are, quite literally, the best. Love, Quin
       </div>
+    </div>
     <script>
+      document.getElementById("envelope").addEventListener("click", function () {
+        document.getElementById("primaryMessage").style.display = "block";
+      });
       document.getElementById("primaryMessage").addEventListener("click", function () {
         // Show the hidden message
         document.getElementById("fullMessage").style.display = "block";
         // Play the party sound
-        const sound= document.getElementById("partySound");
-        sound.play();
+        document.getElementById("partySound").play();
         // Launch Confetti!
         confetti({
           particleCount:100,
@@ -34,6 +66,7 @@
         });
       });
     </script>
-    <audio id="partySound" src="https://freesound.org/data/previews/456/456936_5121236-1q.mp3" preload="auto"></audio>
+    <audio id="partySound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_63cba40fa2.mp3?filename=party-horn-8043.mp3" preload="auto"></audio>
   </body>
 </html>
+

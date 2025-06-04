@@ -52,18 +52,18 @@
     <script>
       document.getElementById("envelope").addEventListener("click", function () {
         document.getElementById("primaryMessage").style.display = "block";
+        //Launch Confetti
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: ( y: 0.6)
+            });
       });
       document.getElementById("primaryMessage").addEventListener("click", function () {
         // Show the hidden message
         document.getElementById("fullMessage").style.display = "block";
         // Play the party sound
         document.getElementById("partySound").play();
-        // Launch Confetti!
-        confetti({
-          particleCount:100,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
       });
     </script>
     <audio id="partySound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_63cba40fa2.mp3?filename=party-horn-8043.mp3" preload="auto"></audio>
